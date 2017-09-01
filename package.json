@@ -1,0 +1,24 @@
+{
+  "name": "crud-nodejs-mysql",
+  "version": "2.0.0",
+  "description": "En este proyecto desarrollaremos una aplicación REST-MVC con Node.js, Express y MySQL",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "supervisor server.js"
+  },
+  "author": "Andres Alvarez",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "express-method-override": "0.0.3",
+    "morgan": "^1.8.2",
+    "mysql": "^2.14.1",
+    "pug": "^2.0.0-rc.3",
+    "serve-favicon": "^2.4.3"
+  },
+  "devDependencies": {
+    "supervisor": "^0.12.0"
+  }
+}
