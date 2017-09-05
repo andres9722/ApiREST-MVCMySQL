@@ -1,0 +1,39 @@
+extends layout.pug
+
+block content
+    section.container
+        h1.header= title
+        img(src="indentation-war.png", alt="", srcset="")
+        article.item
+            div
+                a.button.add(href="/agregar") Agregar
+            if(data.length)
+                table.table
+                    tr
+                        th Email
+                        th Nick
+                        th Name
+                        th LastName
+                        th Password
+                        th
+                        th
+                    each user in data
+                        tr
+                            td #{user.email}
+                            td #{user.nick}
+                            td #{user.name}
+                            td #{user.last_name}
+                            td #{user.password}
+                            td 
+                                a.button.edit(href="/editar/" + user.email) Editar
+                            td 
+                                form(method="post", action="/eliminar/" + user.email)
+                                    input(type="hidden", name="_method", value="DELETE")
+                                    input.button.delete(type="button", value="Eliminar", onclick="eliminar(this)")
+                script.
+                    function eliminar(input) {
+                        var deleteOK = confirm('¿Esta seguro de eliminar el registro?');
+                        return (deleteOK) ? input.parentNode.submit() : false;
+                    }
+            else
+                div.error No tienes usuarios que mostrar

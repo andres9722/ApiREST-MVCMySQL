@@ -1,14 +1,14 @@
 'use strict';
 
-const TeamModel = require('../models/team-model'),
-      tm = new TeamModel();
+const UserModel = require('../models/user-model'),
+      um = new UserModel();
 
-class TeamController {
+class UserController {
     getAll(req, res, next) {
-        tm.getAll((err, data) => {
+        um.getAll((err, data) => {
             if(!err) {
                 res.render('index',  {
-                    title: 'Indentation War',
+                    title: 'Welcome to Valoop',
                     data: data
                 });
             }
@@ -16,12 +16,12 @@ class TeamController {
     }
         
     getOne(req, res, next) {
-        let id = req.params.id;
-        console.log(id);
-        tm.getOne(id, (err, data) => {
+        let email = req.params.email;
+        console.log(email);
+        um.getOne(email, (err, data) => {
             if(!err) {
                 res.render('edit', {
-                    title: 'Editar Contacto',
+                    title: 'Edit Contact',
                     data: data
                 });
             }
@@ -29,17 +29,17 @@ class TeamController {
     }
 
     save(req, res, next) {
-        let contacto = {
-            id: (req.body.id || 0),
+        let user = {
+            email: (req.body.email || 0),
+            nick: req.body.nick,
             name: req.body.name,
-            twitter: req.body.twitter,
-            country: req.body.country,
-            side: req.body.side
+            last_name: req.body.last_name,
+            password: req.body.password,
         };
 
-        console.log(contacto);
+        console.log(user);
 
-        tm.save(contacto, (err) => {
+        um.save(user, (err) => {
             if(!err) {
                 res.redirect('/');
             } else {
@@ -49,9 +49,9 @@ class TeamController {
     }
         
     delete(req, res, next) {
-        let id = req.params.id;
+        let email = req.params.email;
 
-        tm.delete(id, (err, data) => {
+        um.delete(email, (err, data) => {
             if(!err) {
                 res.redirect('/');
             } else {
@@ -62,7 +62,7 @@ class TeamController {
 
     addForm(req, res, next) {
         res.render('add',  {
-            title: 'Agregar contacto',
+            title: 'Agregar user',
         });
     }
 
@@ -74,4 +74,4 @@ class TeamController {
     }
 }
 
-module.exports = TeamController;
+module.exports = UserController;

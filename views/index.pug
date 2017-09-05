@@ -1,37 +1,31 @@
 extends layout.pug
 
 block content
-    section.container
-        h1.header= title
-        img(src="indentation-war.png", alt="", srcset="")
-        article.item
-            div
-                a.button.add(href="/agregar") Agregar
-            if(data.length)
-                table.table
-                    tr
-                        th Nombre
-                        th Twitter
-                        th País
-                        th Equipo
-                        th
-                        th
-                    each contacto in data
-                        tr
-                            td #{contacto.name}
-                            td #{contacto.twitter}
-                            td #{contacto.country}
-                            td #{contacto.side}
-                            td 
-                                a.button.edit(href="/editar/" + contacto.id) Editar
-                            td 
-                                form(method="post", action="/eliminar/" + contacto.id)
-                                    input(type="hidden", name="_method", value="DELETE")
-                                    input.button.delete(type="button", value="Eliminar", onclick="eliminar(this)")
-                script.
-                    function eliminar(input) {
-                        var deleteOK = confirm('¿Esta seguro de eliminar el registro?');
-                        return (deleteOK) ? input.parentNode.submit() : false;
-                    }
-            else
-                div.error No tienes contactos que mostrar
+    section.contenedor
+        section.container
+            h1.header= title
+            article.item
+                form.form(method="post", action="/")       
+                    div
+                        input(type="text", name="email", placeholder="Email", required)
+                    div
+                        input(type="text", name="nick", placeholder="Nick", required)
+                    div
+                        input(type="text", name="name", placeholder="Nombre", required)
+                    div
+                        input(type="text", name="last_name", placeholder="Apellido", required)
+                    div
+                        input(type="password", name="password", placeholder="Contraseña", required)
+                    div
+                        input.button.add(type="submit", value="Register")
+
+        section.container.num2
+            h1.header LOGIN TO VALOOP
+            article.item
+                form.form(method="post", action="/")       
+                    div
+                        input(type="text", name="email", placeholder="Email", required)
+                    div
+                        input(type="password", name="password", placeholder="Contraseña", required)
+                    div
+                        input.button.add(type="submit", value="LOGIN")

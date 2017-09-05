@@ -7,13 +7,15 @@ block content
             form.form(method="post", action="/")
                 fieldset
                     div
+                        input(type="text", name="email", placeholder="Email", required)
+                    div
+                        input(type="text", name="nick", placeholder="Nick", required)
+                    div
                         input(type="text", name="name", placeholder="Nombre", required)
                     div
-                        input(type="text", name="twitter", placeholder="Twitter", required)
+                        input(type="text", name="last_name", placeholder="Apellido", required)
                     div
-                        input(type="text", name="country", placeholder="País", required)
+                        input(type="text", name="password", placeholder="Contraseña", required)
                     div
-                        input(type="text", name="side", placeholder="Equipo", required)
-                    div
-                        input.button.add(type="submit", value="Agregar")
+                        input.button.add(type="submit", value="Registrarse")
         a.button.show(href="/") Inicio

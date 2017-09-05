@@ -4,6 +4,6 @@
          "port" : 3306,
          "user" : "root",
          "pass" : "",
-         "db" : "indentation_war"
+         "db" : "valoop"
      }
  }

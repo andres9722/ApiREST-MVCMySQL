@@ -1,55 +1,56 @@
-html {
+*, *:after, *:before {
 	box-sizing: border-box;
-	font-family: 'Century Gothic';
-	font-size: 16px;
-	text-align: center;
-	background-color: #222;
 }
 
-*, *:after, *:before {
-	box-sizing: inherit;
+
+body {
+	font-family: 'Century Gothic';
+	font-size: 16px;
+	background-color: #052433;
 	margin: 0;
 	padding: 0;
-	border: 0;
+	height: 100vh;
 }
+
+.contenedor {
+	display: flex;
+}
+
 
 a { text-decoration: none; }
 
+.container {
+	min-height: 600px;
+	width: 100%;
+	height: 100vh;
+	text-align: center;
+	padding: 3em 0;
+}
+
+.num2 {
+	background: #041721;
+	border-left: 2px solid white;
+}
+
 fieldset {
-	background-color: #EEE;
-	border: thin solid #292623;
 	padding: 1rem;
+	border-radius: 10px;
 }
-
-img {
-	display: block;
-	margin: 1rem auto;
-	max-width: 100%;
-	height: auto;
-}
-
-input[type="submit"] { cursor: pointer; }
 
 input[type="text"] {
-	border: thin solid #DDD;
-	font: 1rem sans-serif;
-	padding: .5rem;
+	font-family: 'Century Gothic';
+	background: #F9F7F7;
 }
 
 :focus { outline: thin solid #EC673A; }
 
 .header {
-	padding: 1rem;
-	font-size: 2rem;
-	color: #EEE;
-	background-color: #1C5F81;
-}
-
-.container {
-	background-color: #FFF;
-	margin: 5% auto 0;
-	min-height: 600px;
-	width: 90%;
+	padding: .5em;
+	font-size: 3em;
+	color: #CC2936;
+	text-transform: uppercase;
+	text-shadow: 1px 1px 0 white;
+	margin: 0;
 }
 
 .item { 
@@ -58,15 +59,23 @@ input[type="text"] {
 }
 
 .button {
-	border: thin solid #292623;
-	color: #EEE;
-	font: 1rem sans-serif;
-	padding: .5rem 1rem;
+	border: thin solid #0075F2;
+	color: #0075F2;
+	font-weight: 600;
+	transition: all .2s ease;
 }
 
-.button:hover { opacity: .75; }
+.button:hover { opacity: .8; }
 
-.add { background-color: #0B0; }
+.add { 
+	background: #E8EDFC;
+	padding: .5em .8em;
+	text-transform: uppercase;
+	border: 1px solid white;	
+	font-family: 'Segoe UI';
+	font-size: 1.2rem;
+	margin-top: 2.5rem;
+}
 
 .edit { background-color: #0871B2; }
 
@@ -84,29 +93,29 @@ input[type="text"] {
 	text-align: center;
 }
 
+.form {
+	margin: 0;
+}
+
+input {
+	padding: 1.2rem;
+	margin: .5rem;
+	width: 50%;
+	font-size: 1rem;
+	font-family: 'Century Gothic';
+}
+
+input[type="submit"] { 
+	cursor: pointer; 
+	width: 20%;
+}
+
 .error pre {
 	font-size: 1rem;
 	width:100%;
 	word-wrap:break-word;
 }
 
-.form div { 
-	font-size: 0;
-	margin: 1rem auto;
-}
-
-.form div:not(:last-child) > * {
-	display: inline-block;
-	padding: .25rem;
-	vertical-align: top;
-	width: 80%;
-}
-
-.form div > *:first-child:not(:last-child) {
-	font-size: 1rem;
-	text-align: right;
-	width: 20%;
-}
 
 .table {
 	border-collapse: collapse;
